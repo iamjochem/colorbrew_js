@@ -8,7 +8,7 @@ This project contains a few simple extra's, namely:
 + a 'universal module loading wrapper' allowing for AMD, CommonJS and Node.js module loading in addition to the classic global object definition
 + some unit tests for the `random` method and the module loading wrapper
 
-The color set definitions are identical to the original work, [a copy of the original license is included](./COLORBREWER_LICENSE)
+The color set definitions are identical to the original work, [a copy of the original license is included](https://github.com/iamjochem/colorbrewer_js/blob/master/COLORBREWER_LICENSE)
 
 ## Usage
 
