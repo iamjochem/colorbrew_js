@@ -1,0 +1,45 @@
+{
+    "name"              : "colorbrewer",
+    "version"           : "0.0.1",
+    "description"       : "",
+    "keywords"          : ["library"],
+
+    "homepage"          : "https://github.com/iamjochem/colorbrewer_js",
+    "bugs"              : "https://github.com/iamjochem/colorbrewer_js/issues",
+
+    "maintainers"       : [{
+            "name"      : "Jochem Maas",
+            "email"     : "jochem@iamjochem.com",
+            "web"       : "http://www.iamjochem.com"
+    }],
+
+    "contributors"      : [{
+            "name"      : "Cynthia Brewer",
+            "email"     : "cbrewer@psu.edu",
+            "web"       : "http://www.personal.psu.edu/cab38/ColorBrewer/ColorBrewer.html"
+        },{
+            "name"      : "Jochem Maas",
+            "email"     : "jochem@iamjochem.com",
+            "web"       : "http://www.iamjochem.com"
+    }],
+
+    "main"              : "./colorbrewer.js",
+    "repository"        : {
+        "type"          : "git",
+        "url"           : "git://github.com/iamjochem/colorbrewer_js.git"
+    },
+
+    "scripts"           : {
+        "test"          : "node test/node-index.js"
+    },
+
+    "dependencies"      : {},
+    "devDependencies"   : {
+        "qunit"         : "~0.5.1"
+    },
+
+    "licenses"          : [{
+        "type"          : "Apache 2.0",
+        "url"           : "http://www.apache.org/licenses/LICENSE-2.0"
+    }]
+}
