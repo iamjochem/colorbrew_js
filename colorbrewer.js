@@ -3,11 +3,11 @@
  * Brewer (http://colorbrewer.org/).
  *
  * changes to the original colorbrewer.js are:
- *      
+ *
  *      - additional function to pick a random color set: call `colorbrewer.random(<INT>)` where <INT> is the number of colors wanted (must be between 3 and 11 otherwise an empty array is returned)
- *      - implement wrapping code (based on examples from http://addyosmani.com/writing-modular-js/) so that AMD, CommonJS and Node.JS-Module loading is supported (as well as the fallback global object definition) 
+ *      - implement wrapping code (based on examples from http://addyosmani.com/writing-modular-js/) so that AMD, CommonJS and Node.JS-Module loading is supported (as well as the fallback global object definition)
  */
- 
+
 ;(function(scope){
 
     // define the colorbrewer module
@@ -66,18 +66,27 @@
         return sets;
     })();
 
-    // load the module 
-    (function (name, definition) {
-        var theModule  = definition(),
-            hasDefine  = typeof define === 'function'  && define.amd,
-            hasExports = typeof module !== 'undefined' && module.exports,
+    // load the module
+    (function (name, mod) {
+        var hasDefine  = typeof define === 'function'  && typeof define.amd !== 'undefined',
+            hasExports = typeof module !== 'undefined' && typeof module.exports !== 'undefined',
             hasExport  = typeof exports !== 'undefined';
-     
-        if (hasDefine)       define(theModule);                 // AMD Module
-        else if (hasExports) module.exports = theModule;        // Node.js Module
-        else if (hasExport)  exports[name]  = theModule;        // CommonJS Module
-        else                 scope[name]    = theModule;
-        
-    })('colorbrewer', function () { return colorbrewer; });
-    
-})(window || this);
+
+        if (hasDefine)       { define(mod);          } // AMD Module
+        else if (hasExports) { module.exports = mod; } // Node.js Module
+        else if (hasExport)  { exports[name]  = mod; } // CommonJS Module
+        else {
+
+            var original = scope[name];
+
+            mod.noConflict = function () {
+                scope[name] = original;
+                return mod;
+            };
+
+            scope[name] = mod;
+        }
+
+    })('colorbrewer', colorbrewer);
+
+})(this);
