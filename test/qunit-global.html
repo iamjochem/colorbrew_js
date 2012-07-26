@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ColorBrewer.JS Tests</title>
+    <link rel="stylesheet" type="text/css" href="./lib/qunit/qunit.css">
+
+    <script src="./lib/qunit/qunit.js"></script>
+    <script src="./testdata.js"></script>
+    <script src="./qunit-tests.js"></script>
+    <script>
+      var colorbrewer = {noconflicttest: true}; // used to test colorbrewer.noConflict()
+    </script>
+    <script src="../colorbrewer.js"></script>
+    <script>
+      run_colorbrewer_tests(colorbrewer, testdata, true);
+    </script>
+  </head>
+  <body>
+    <h1 id="qunit-header">ColorBrewer.JS Tests (global script include method)</h1>
+    <h2 id="qunit-banner"></h2>
+    <div id="qunit-testrunner-toolbar"></div>
+    <h2 id="qunit-userAgent"></h2>
+    <ol id="qunit-tests"></ol>
+
+    <div id="qunit-fixture"></div>
+  </body>
+</html>

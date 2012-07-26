@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ColorBrewer.JS Tests</title>
+    <link rel="stylesheet" type="text/css" href="./lib/qunit/qunit.css">
+
+    <script src="./lib/qunit/qunit.js"></script>
+    <script src="./qunit-tests.js"></script>
+    <!-- if you are only interested in loading the colorbrewer module via AMD
+         then uncomment the following script tag  and remove './testdata.js' from the require() array below!
+
+    <script src="./testdata.js"></script>
+    -->
+
+    <script src="./lib/requirejs/require.js"></script>
+    <script>
+      QUnit.config.autostart = false;
+
+      require(
+        [
+          '../colorbrewer',
+          './testdata'
+        ],
+
+        function(colorbrewer, testdata) {
+          QUnit.start();
+          run_colorbrewer_tests(colorbrewer, testdata || window.testdata);
+        },
+
+        function(err) {
+          QUnit.start();
+          test("RequireJS failed to load the module and called the error handler", function() { ok(false); });
+        }
+      );
+    </script>
+  </head>
+  <body>
+    <h1 id="qunit-header">ColorBrewer.JS Tests (RequireJS include method)</h1>
+    <h2 id="qunit-banner"></h2>
+    <div id="qunit-testrunner-toolbar"></div>
+    <h2 id="qunit-userAgent"></h2>
+    <ol id="qunit-tests"></ol>
+
+    <div id="qunit-fixture"></div>
+  </body>
+</html>

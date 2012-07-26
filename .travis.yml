@@ -1,0 +1,14 @@
+language: node_js
+
+node_js:
+  - 0.6
+
+branches:
+  only:
+    - master
+
+before_script:
+  - "export DISPLAY=:99.0"
+  - "sh -e /etc/init.d/xvfb start"
+
+script: "node test/run-nodejs.tests.js && phantomjs test/phantomjs.tests.js test/qunit-global.html && phantomjs test/phantomjs.tests.js test/qunit-requirejs.html"
