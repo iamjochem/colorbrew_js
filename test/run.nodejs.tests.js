@@ -1,5 +1,5 @@
 var assert      = require('assert');
-var colorbrewer = require('../colorbrewer');
+var colorbrew   = require('../colorbrew');
 var testdata    = require('./testdata');
 
 // module exists
@@ -8,7 +8,7 @@ var testdata    = require('./testdata');
     assert.ok(typeof cb.constructor !== undefined,  'Module variable has constructor property');
     assert.ok(cb.constructor === Object,            'Module variable constructor property is Object');
     assert.ok(typeof cb.random === 'function',      'Module has `random` method');
-}(colorbrewer));
+}(colorbrew));
 
 // random method
 (function(cb) {
@@ -33,4 +33,4 @@ var testdata    = require('./testdata');
     // reset
     Math.random = rndFn;
 
-}(colorbrewer));
+}(colorbrew));

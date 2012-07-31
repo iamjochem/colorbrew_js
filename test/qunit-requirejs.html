@@ -18,13 +18,13 @@
 
       require(
         [
-          '../colorbrewer',
+          '../colorbrew',
           './testdata'
         ],
 
-        function(colorbrewer, testdata) {
+        function(colorbrew, testdata) {
           QUnit.start();
-          run_colorbrewer_tests(colorbrewer, testdata || window.testdata);
+          run_colorbrew_tests(colorbrew, testdata || window.testdata);
         },
 
         function(err) {
@@ -35,7 +35,7 @@
     </script>
   </head>
   <body>
-    <h1 id="qunit-header">ColorBrewer.JS Tests (RequireJS include method)</h1>
+    <h1 id="qunit-header">ColorBrew.JS Tests (RequireJS include method)</h1>
     <h2 id="qunit-banner"></h2>
     <div id="qunit-testrunner-toolbar"></div>
     <h2 id="qunit-userAgent"></h2>

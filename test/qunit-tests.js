@@ -16,12 +16,11 @@ if (false) {
 
 /* end of (syntax-highlighter) cruft */
 
-var run_colorbrewer_tests = function(cb, testdata, is_global) {
+var run_colorbrew_tests = function(cb, testdata, is_global) {
 
     // ------------------------------------------------------------------------------
     // ------------------------------------------------------------------------------
-
-    test('colorbrewer Exists?', function() {
+    test('colorbrew Exists?', function() {
         expect(4);
 
         ok(typeof cb !== undefined,              'Module variable is defined');
@@ -30,7 +29,7 @@ var run_colorbrewer_tests = function(cb, testdata, is_global) {
         ok(typeof cb.random === 'function',      'Module has `random` method');
     });
 
-    test('colorbrewer.random()', function() {
+    test('colorbrew.random()', function() {
         expect(2 + testdata.outofbounds.length + testdata.random_returns.length);
 
         var colors = cb.random(testdata.cnum);
@@ -58,7 +57,7 @@ var run_colorbrewer_tests = function(cb, testdata, is_global) {
     if (!is_global)
         return;
 
-    test('colorbrewer.noConflict()', function() {
+    test('colorbrew.noConflict()', function() {
         expect(3);
 
         equal(cb, window.colorbrewer, 'colorbrewer is the global object prior to calling noConflict()');

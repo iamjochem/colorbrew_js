@@ -10,8 +10,8 @@
 
 ;(function(scope){
 
-    // define the colorbrewer module
-    var colorbrewer = (function() {
+    // define the colorbrew module
+    var colorbrew  = (function() {
         var range  = [3, 4, 5, 6, 7, 8, 9, 10, 11],  // range of number of colors supported by *any* of the sets defined below
             sets   = {
                 YlGn:{3:["rgb(247,252,185)","rgb(173,221,142)","rgb(49,163,84)"],4:["rgb(255,255,204)","rgb(194,230,153)","rgb(120,198,121)","rgb(35,132,67)"],5:["rgb(255,255,204)","rgb(194,230,153)","rgb(120,198,121)","rgb(49,163,84)","rgb(0,104,55)"],6:["rgb(255,255,204)","rgb(217,240,163)","rgb(173,221,142)","rgb(120,198,121)","rgb(49,163,84)","rgb(0,104,55)"],7:["rgb(255,255,204)","rgb(217,240,163)","rgb(173,221,142)","rgb(120,198,121)","rgb(65,171,93)","rgb(35,132,67)","rgb(0,90,50)"],8:["rgb(255,255,229)","rgb(247,252,185)","rgb(217,240,163)","rgb(173,221,142)","rgb(120,198,121)","rgb(65,171,93)","rgb(35,132,67)","rgb(0,90,50)"],9:["rgb(255,255,229)","rgb(247,252,185)","rgb(217,240,163)","rgb(173,221,142)","rgb(120,198,121)","rgb(65,171,93)","rgb(35,132,67)","rgb(0,104,55)","rgb(0,69,41)"]},
@@ -87,6 +87,6 @@
             scope[name] = mod;
         }
 
-    })('colorbrewer', colorbrewer);
+    })('colorbrewer', colorbrew);
 
 })(this);
