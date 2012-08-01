@@ -21,7 +21,7 @@
 })(this, 'testdata', function() {
     return {
         // values that are out of bounds for colorbrewer.random()
-        outofbounds         : [1,2,12,13,14,15,16/*....*/],
+        outofbounds         : [1,2,13,14,15,16/*....*/],
         // num of random colors to be selected for each test
         cnum                : 5,
         // 5-color return values for specific values returned by Math.random
