@@ -54,6 +54,40 @@ var run_colorbrew_tests = function(cb, testdata, is_global) {
         Math.random = rndFn;
     });
 
+    test('colorbrew.random() with category', function() {
+
+        // Math.random spoof to ensure randomness works
+        var rndFn = Math.random;
+
+        for (var cat in testdata.cat_rand_returns)
+            testdata.cat_rand_returns[cat].forEach(function(v) {
+                Math.random = function() { return v[0]; };
+
+                deepEqual(cb.random(testdata.cnum), v[1], 'Math.random return value of ' + v[0].toString() + ' returns the expected array of ' + testdata.cnum + ' colors.');
+            });
+
+        // reset
+        Math.random = rndFn;
+    });
+
+    test('colorbrew.random() / colorbrew.getsets()  with invalid cat', function() {
+        expect(2);
+        raises(function() { cb.getsets(testdata.invalid_cat.name); }, testdata.invalid_cat.errmsg_re, 'passing an invalid category name to colorbrew.getsets() should raise an exception.');
+        raises(function() { cb.random(testdata.cnum, testdata.invalid_cat.name); }, testdata.invalid_cat.errmsg_re, 'passing an invalid category name to colorbrew.random() should raise an exception.');
+    });
+
+    test('colorbrew.getcat() / colorbrew.getsets()', function() {
+        for (var cat in testdata.cat_set_names) {
+            var cats = cb.getsets(cat);
+
+            deepEqual(testdata.cat_set_names[cat], cats, 'category "' + cat + '" contains the expected sets.');
+
+            cats.forEach(function(v) {
+                equal(cb.getcat(v), cat, 'set "' + v + '" has category "' + cat + '"');
+            });
+        }
+    });
+
     if (!is_global)
         return;
 
